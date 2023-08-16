@@ -1,0 +1,21 @@
+## docker-compose.yaml ##
+version: '3'
+
+volumes:
+  grafana_data: {}
+
+services:
+  grafana:
+    restart: always
+    privileged: true
+    container_name: grafana
+    hostname: grafana
+    image: grafana/grafana
+    volumes:
+      - ./grafana_datasources.yaml:/etc/grafana/provisioning/datasources/all.yaml
+      - ./grafana_config.ini:/etc/grafana/config.ini
+      - ./data:/var/lib/grafana
+    ports:
+      - 3000:3000
+    environment:
+      - TZ=America/Monterrey
