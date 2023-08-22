@@ -6,4 +6,4 @@ datasources:
   - name: 'prometheus'
     type: 'prometheus'
     access: 'proxy'
-    url: 'http://azure-br:9090'
+    url: 'http://mon:9090'
